@@ -1,0 +1,325 @@
+/* Dashboard Container */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+/* Dashboard Cards */
+.dash-card {
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dash-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.dash-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+}
+
+.dash-card-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.dash-card-trend {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+.dash-card-trend.up {
+  color: var(--success);
+}
+
+.dash-card-trend.down {
+  color: var(--error);
+}
+
+/* Dashboard Layout split */
+.dash-layout-split {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+.dash-section-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+}
+
+/* SVG Charts */
+.chart-container {
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  margin-bottom: 32px;
+}
+
+.chart-svg {
+  width: 100%;
+  height: 200px;
+  overflow: visible;
+}
+
+.chart-axis-line {
+  stroke: var(--glass-border);
+  stroke-width: 1;
+}
+
+.chart-grid-line {
+  stroke: var(--secondary);
+  stroke-width: 1;
+  stroke-dasharray: 4 4;
+}
+
+.chart-data-line {
+  stroke: var(--primary);
+  stroke-width: 3;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.chart-data-area {
+  fill: url(#chart-gradient);
+  opacity: 0.15;
+}
+
+.chart-dot {
+  fill: var(--primary);
+  stroke: var(--background);
+  stroke-width: 2;
+  transition: r var(--transition-fast);
+}
+
+.chart-dot:hover {
+  r: 8px;
+  cursor: pointer;
+}
+
+.chart-text {
+  font-size: 10px;
+  fill: var(--text-muted);
+  font-family: var(--font-family);
+  font-weight: 600;
+}
+
+/* Popular Services Pie Chart Simulation */
+.pie-legend {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.pie-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.pie-legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}
+
+/* Bookings table/list */
+.booking-list-card {
+  padding: 24px;
+}
+
+.bookings-table-wrapper {
+  overflow-x: auto;
+}
+
+.bookings-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.bookings-table th {
+  padding: 12px 16px;
+  border-bottom: 2px solid var(--secondary);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.bookings-table td {
+  padding: 16px;
+  border-bottom: 1px solid var(--secondary);
+  font-size: 0.9rem;
+}
+
+.bookings-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Status Badges */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.status-pending {
+  background: rgba(201, 162, 39, 0.1);
+  color: var(--primary);
+}
+
+.status-confirmed {
+  background: rgba(39, 174, 96, 0.1);
+  color: var(--success);
+}
+
+.status-completed {
+  background: var(--secondary);
+  color: var(--text-muted);
+}
+
+.status-cancelled {
+  background: rgba(231, 76, 60, 0.1);
+  color: var(--error);
+}
+
+/* Staff Attendance checklist */
+.attendance-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.attendance-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: var(--secondary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border);
+}
+
+.attendance-staff-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.attendance-staff-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.attendance-staff-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.attendance-toggle-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+.attendance-toggle-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.attendance-toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--accent);
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.attendance-toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+  box-shadow: var(--shadow-sm);
+}
+
+.attendance-toggle-input:checked + .attendance-toggle-slider {
+  background-color: var(--success);
+}
+
+.attendance-toggle-input:checked + .attendance-toggle-slider:before {
+  transform: translateX(24px);
+}
+
+.attendance-status-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.attendance-status-label.present {
+  color: var(--success);
+}
+
+.attendance-status-label.absent {
+  color: var(--text-muted);
+}
+
+/* Responsive Dashboard layout */
+@media (max-width: 992px) {
+  .dash-layout-split {
+    grid-template-columns: 1fr;
+  }
+}
