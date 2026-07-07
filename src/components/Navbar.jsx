@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Calendar, User } from 'lucide-react';
+import { Menu, X, User } from 'lucide-react';
 
-export default function Navbar({ activeSection, onNavigate, onOpenBooking, onToggleAdmin, isAdminMode }) {
+export default function Navbar({ activeSection, onNavigate, onToggleAdmin, isAdminMode }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -38,8 +38,11 @@ export default function Navbar({ activeSection, onNavigate, onOpenBooking, onTog
         <div className="navbar-container">
           {/* Logo */}
           <a href="#home" className="logo" onClick={() => handleLinkClick('home')}>
-            <span>Sadhana</span>
-            <span className="logo-sub">Luxury Salon</span>
+            <img src="./logo.png" alt="Sadhana Salon Logo" className="logo-img" />
+            <div className="logo-text-wrapper">
+              <span>Sadhana</span>
+              <span className="logo-sub">Luxury Salon</span>
+            </div>
           </a>
 
           {/* Desktop Nav Links */}
@@ -68,12 +71,6 @@ export default function Navbar({ activeSection, onNavigate, onOpenBooking, onTog
               <User size={16} />
               Dashboard
             </a>
-
-            {/* Quick CTA */}
-            <button className="btn btn-primary" onClick={onOpenBooking}>
-              <Calendar size={16} />
-              Book Now
-            </button>
           </nav>
 
           {/* Mobile Hamburger Button */}
@@ -131,18 +128,6 @@ export default function Navbar({ activeSection, onNavigate, onOpenBooking, onTog
             </a>
           </li>
         </ul>
-
-        <button 
-          className="btn btn-primary" 
-          onClick={() => {
-            setIsSidebarOpen(false);
-            onOpenBooking();
-          }}
-          style={{ width: '100%', marginTop: 'auto' }}
-        >
-          <Calendar size={18} />
-          Book Appointment
-        </button>
       </div>
     </>
   );

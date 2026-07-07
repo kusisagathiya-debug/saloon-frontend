@@ -2,7 +2,7 @@ import http.server
 import socketserver
 import sys
 
-PORT = 8000
+PORT = 8080
 
 class LuxurySalonHandler(http.server.SimpleHTTPRequestHandler):
     def end_headers(self):
@@ -27,14 +27,14 @@ print("==========================================================")
 
 try:
     with socketserver.TCPServer(("", PORT), LuxurySalonHandler) as httpd:
-        print(f"🚀 Dev Server initialized successfully!")
-        print(f"🔗 Click to view: http://localhost:{PORT}")
+        print(f"Dev Server initialized successfully!")
+        print(f"Click to view: http://localhost:{PORT}")
         print("Press Ctrl+C to stop the server.\n")
         httpd.serve_forever()
 except Exception as e:
-    print(f"❌ Failed to start server: {e}", file=sys.stderr)
-    print("Ensure port 8000 is not in use.", file=sys.stderr)
+    print(f"Failed to start server: {e}", file=sys.stderr)
+    print(f"Ensure port {PORT} is not in use.", file=sys.stderr)
     sys.exit(1)
 except KeyboardInterrupt:
-    print("\n👋 Server stopped. Have a nice day!")
+    print("\nServer stopped. Have a nice day!")
     sys.exit(0)

@@ -7,13 +7,11 @@ import StaffCarousel from './components/StaffCarousel.jsx';
 import ReviewSection from './components/ReviewSection.jsx';
 import Contact from './components/Contact.jsx';
 import Dashboard from './components/Dashboard.jsx';
-import BookingWizard from './components/BookingWizard.jsx';
-import Door3D from './components/Door3D.jsx';
+import HeroCarousel from './components/HeroCarousel.jsx';
 import { db } from './services/db.js';
-import { Calendar, Phone, Clock, ArrowRight, Eye, RefreshCw, Scissors, Sparkles, Smile, ShieldAlert } from 'lucide-react';
+import { Sparkles, ShieldAlert } from 'lucide-react';
 
 export default function App() {
-  const [showDoor, setShowDoor] = useState(true);
   const [activeSection, setActiveSection] = useState('home');
   const [activeGender, setActiveGender] = useState('men'); // 'men' or 'women'
   const [activeCategory, setActiveCategory] = useState('all'); // 'all', 'hair', 'facial', 'treatment', 'makeup'
@@ -22,12 +20,6 @@ export default function App() {
   const [services, setServices] = useState([]);
   const [filteredServices, setFilteredServices] = useState([]);
   
-  // Booking modal states
-  const [isBookingOpen, setIsBookingOpen] = useState(false);
-  const [bookingService, setBookingService] = useState(null);
-  const [bookingPrice, setBookingPrice] = useState(0);
-  const [bookingCoupon, setBookingCoupon] = useState('');
-
   // Admin Mode states
   const [isAdminMode, setIsAdminMode] = useState(false);
 
@@ -83,46 +75,6 @@ export default function App() {
     }, 3500);
   };
 
-  // 5. Booking Handlers
-  const handleOpenBookingForService = (service, selectedPrice) => {
-    setBookingService(service);
-    setBookingPrice(selectedPrice);
-    setBookingCoupon('');
-    setIsBookingOpen(true);
-  };
-
-  const handleApplyCouponFromTicker = (couponCode) => {
-    setBookingCoupon(couponCode);
-    setBookingService(null);
-    setBookingPrice(0);
-    setIsBookingOpen(true);
-    addToast(`Coupon "${couponCode}" applied to scheduler!`, 'success');
-  };
-
-  const handleBookingSuccess = (bookingDetails) => {
-    setIsBookingOpen(false);
-    setRefreshTrigger(prev => prev + 1); // trigger dashboard updates
-    addToast(`Appointment confirmed for ${bookingDetails.time}! Check WhatsApp.`, 'success');
-  };
-
-  // Re-open 3D doors
-  const handleReopenDoor = () => {
-    setShowDoor(true);
-    addToast("Resetting 3D salon gates.", "success");
-  };
-
-  // If 3D entry door is active, render it
-  if (showDoor) {
-    return (
-      <Door3D 
-        onComplete={() => {
-          setShowDoor(false);
-          addToast("Welcome to Sadhana Salon & Spa", "success");
-        }} 
-      />
-    );
-  }
-
   return (
     <div className="animate-fade-in">
       {/* Toast Overlay */}
@@ -140,17 +92,11 @@ export default function App() {
         activeSection={activeSection}
         isAdminMode={isAdminMode}
         onNavigate={handleNavigate}
-        onOpenBooking={() => {
-          setBookingService(null);
-          setBookingPrice(0);
-          setBookingCoupon('');
-          setIsBookingOpen(true);
-        }}
         onToggleAdmin={() => setIsAdminMode(!isAdminMode)}
       />
 
       {/* Offers marquee scrolling banner */}
-      <OffersBanner onApplyCoupon={handleApplyCouponFromTicker} />
+      <OffersBanner />
 
       {/* Main Container Layout */}
       <main style={{ marginTop: 'var(--nav-height)', minHeight: 'calc(100vh - var(--nav-height) - 100px)' }}>
@@ -166,29 +112,10 @@ export default function App() {
           /* ======================================================== */
           <>
             {/* HERO HERO SECTION */}
-            <section id="home" className="section" style={{ padding: '100px 0', textAlign: 'center', background: 'radial-gradient(circle at center, var(--secondary) 0%, var(--background) 100%)' }}>
-              <div className="container animate-fade-in">
-                <span className="review-service-tag" style={{ marginBottom: '16px', background: 'var(--accent)', color: 'var(--text)' }}>
-                  ✨ Luxury Grooming & Rejuvenation
-                </span>
-                <h1 className="heading-display heading-gold" style={{ fontSize: '3.5rem', marginBottom: '20px' }}>
-                  Sadhana Salon & Spa
-                </h1>
-                <p style={{ color: 'var(--text-muted)', fontSize: '1.2rem', maxWidth: '700px', margin: '0 auto 36px auto' }}>
-                  Experience premium haircuts, high-end skincare, and wedding makeup artistry delivered by certified experts in a cozy ambiance.
-                </p>
-                <div style={{ display: 'flex', justifyContent: 'center', gap: '16px' }}>
-                  <button className="btn btn-primary" onClick={() => handleNavigate('services')}>
-                    Explore Services
-                    <ArrowRight size={16} />
-                  </button>
-                  <button className="btn btn-secondary" onClick={handleReopenDoor}>
-                    <RefreshCw size={16} />
-                    Reset Entry Door
-                  </button>
-                </div>
-              </div>
-            </section>
+            {/* HERO HERO SECTION */}
+            <HeroCarousel 
+              onExploreServices={() => handleNavigate('services')}
+            />
 
             {/* SERVICES & PRICING SECTIONS */}
             <section id="services" className="section">
@@ -265,7 +192,6 @@ export default function App() {
                     <ServiceCard
                       key={srv.id}
                       service={srv}
-                      onBook={handleOpenBookingForService}
                     />
                   ))}
                 </div>
@@ -300,16 +226,6 @@ export default function App() {
         </div>
       </footer>
 
-      {/* BOOKING WIZARD DIALOG */}
-      {isBookingOpen && (
-        <BookingWizard
-          service={bookingService}
-          initialPrice={bookingPrice}
-          initialCoupon={bookingCoupon}
-          onClose={() => setIsBookingOpen(false)}
-          onSuccess={handleBookingSuccess}
-        />
-      )}
     </div>
   );
 }

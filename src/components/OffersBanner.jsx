@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { db } from '../services/db.js';
 import { Tag, Sparkles } from 'lucide-react';
 
-export default function OffersBanner({ onApplyCoupon }) {
+export default function OffersBanner() {
   const [offers, setOffers] = useState([]);
 
   useEffect(() => {
@@ -23,18 +23,6 @@ export default function OffersBanner({ onApplyCoupon }) {
             <span>{offer.description}</span>
             <span>• Valid till: {offer.validTill}</span>
             <span className="offers-coupon-badge">{offer.code}</span>
-            <button 
-              className="btn btn-secondary" 
-              style={{ 
-                padding: '2px 8px', 
-                fontSize: '0.75rem', 
-                minHeight: '28px',
-                borderRadius: '4px' 
-              }}
-              onClick={() => onApplyCoupon(offer.code)}
-            >
-              Apply
-            </button>
           </div>
         ))}
       </div>
