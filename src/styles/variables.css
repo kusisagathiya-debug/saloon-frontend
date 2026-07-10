@@ -2,13 +2,21 @@
   /* Color Palette */
   --primary: #C9A227;        /* Gold - Luxury Accents */
   --primary-hover: #AB881E;  /* Darker Gold */
-  --background: #FFFFFF;     /* White - Clean */
-  --secondary: #F5EFE6;      /* Beige - Warm */
+  --background: #FAFAFA;     /* Warm White - Clean */
+  --secondary: #FDFBF7;      /* Lighter Beige - Warm */
   --text: #222222;           /* Black - Strong Contrast */
   --text-muted: #666666;     /* Gray - Subtle */
   --accent: #E8D5B7;         /* Soft Gold */
   --success: #27AE60;        /* Green - Bookings */
   --error: #E74C3C;          /* Red - Cancelations */
+  
+  /* Spacing Scale */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 32px;
+  --space-xl: 48px;
+  --space-xxl: 64px;
   
   /* Glassmorphism & Overlays */
   --glass-bg: rgba(255, 255, 255, 0.85);

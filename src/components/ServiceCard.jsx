@@ -1,31 +1,26 @@
 import React from 'react';
-import { Clock, Star } from 'lucide-react';
+import { Scissors, Sparkles, Smile, Star } from 'lucide-react';
+
+const getCategoryIcon = (category) => {
+  switch (category) {
+    case 'hair': return <Scissors size={20} className="text-gold" />;
+    case 'facial': return <Smile size={20} className="text-gold" />;
+    case 'treatment': return <Sparkles size={20} className="text-gold" />;
+    case 'makeup': return <Star size={20} className="text-gold" />;
+    default: return <Sparkles size={20} className="text-gold" />;
+  }
+};
 
 export default function ServiceCard({ service }) {
-  const { id, name, description, duration, rating, reviewsCount } = service;
+  const { name, description, category } = service;
 
   return (
     <div className="card-glass service-card animate-fade-in">
-      <div className="service-header">
-        <h3 className="service-title">{name}</h3>
+      <div className="service-header" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+        {getCategoryIcon(category)}
+        <h3 className="service-title" style={{ margin: 0 }}>{name}</h3>
       </div>
-
-      <div className="service-meta">
-        <div className="service-meta-item">
-          <Clock size={14} className="text-gold" />
-          <span>{duration} Mins</span>
-        </div>
-        
-        {rating && (
-          <div className="service-meta-item">
-            <Star size={14} className="service-rating" fill="#F1C40F" stroke="none" />
-            <span>{rating} ({reviewsCount} reviews)</span>
-          </div>
-        )}
-      </div>
-
-      <p className="service-desc">{description}</p>
-
+      <p className="service-desc" style={{ marginTop: '12px' }}>{description}</p>
     </div>
   );
 }

@@ -18,6 +18,18 @@ export default function Navbar({ activeSection, onNavigate, onToggleAdmin, isAdm
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Body scroll lock for mobile menu
+  useEffect(() => {
+    if (isSidebarOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isSidebarOpen]);
+
   const navItems = [
     { id: 'home', label: 'Home' },
     { id: 'services', label: 'Services' },

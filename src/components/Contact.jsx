@@ -103,11 +103,23 @@ export default function Contact() {
           </div>
 
           {/* Interactive Google Map Embed */}
-          <div className="map-container animate-fade-in delay-1">
+          <div className="map-container animate-fade-in delay-1" style={{ position: 'relative', background: 'var(--secondary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div style={{ position: 'absolute', textAlign: 'center', padding: '20px' }}>
+              <p style={{ color: 'var(--text-muted)', marginBottom: '12px' }}>Map preview unavailable.</p>
+              <a 
+                href="https://maps.google.com/?q=MG+Road+Bengaluru" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="btn btn-primary"
+              >
+                Open Google Maps
+              </a>
+            </div>
             <iframe 
               title="Sadhana Salon Google Map Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.925565590928!2d77.6083161!3d12.9765825!2m3!1f0!2f0!3f0!3m2!1i1024|2i768|4f13.1!3m3!1m2!1s0x3bae167d4f8f4a33%3A0xe54e6ffbbd688cf5!2sMG%20Road%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+              src="https://maps.google.com/maps?q=MG+Road+Bengaluru&t=&z=13&ie=UTF8&iwloc=&output=embed" 
               className="map-iframe"
+              style={{ position: 'relative', zIndex: 2 }}
               allowFullScreen="" 
               loading="lazy" 
               referrerPolicy="no-referrer-when-downgrade"

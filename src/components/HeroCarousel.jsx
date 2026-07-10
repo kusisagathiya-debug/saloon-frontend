@@ -3,25 +3,25 @@ import { ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 
 const CAROUSEL_IMAGES = [
   {
-    url: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1600&q=80',
+    url: '/assets/images/hero/1.png',
     title: 'Precision Styling & Hair Artistry',
     subtitle: 'Crafted by Master Stylists',
     quote: 'Where sophistication meets expertise.'
   },
   {
-    url: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1600&q=80',
+    url: '/assets/images/hero/2.png',
     title: 'Luxury Rejuvenation & Treatments',
     subtitle: 'Nourish Your Body & Soul',
     quote: 'Indulge in absolute pampering and elite skincare.'
   },
   {
-    url: 'https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&w=1600&q=80',
+    url: '/assets/images/hero/3.png',
     title: 'Immersive Luxury Salon Experience',
     subtitle: 'Sadhana Luxury Salon & Spa',
     quote: 'Step into a world of timeless beauty.'
   },
   {
-    url: 'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=1600&q=80',
+    url: '/assets/images/hero/4.png',
     title: 'Elite Wellness & Rejuvenating Therapy',
     subtitle: 'Uncompromising Quality',
     quote: 'Exquisite rituals tailored for your lifestyle.'

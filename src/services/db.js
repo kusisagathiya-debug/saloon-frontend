@@ -430,7 +430,7 @@ const SEED_STAFF = [
   {
     id: "rahul",
     name: "Rahul Sharma",
-    photo: generateSVGPlaceholder("#3e2723", "#ffffff", "Rahul Sharma"),
+    photo: "/assets/images/staff/rahul.png",
     specialty: "Master Barber & Hair Stylist",
     experience: 8,
     rating: 4.9,
@@ -441,7 +441,7 @@ const SEED_STAFF = [
   {
     id: "priya",
     name: "Priya Patel",
-    photo: generateSVGPlaceholder("#4a148c", "#ffffff", "Priya Patel"),
+    photo: "/assets/images/staff/priya.png",
     specialty: "Aesthetician & Facial Specialist",
     experience: 6,
     rating: 4.8,
@@ -452,7 +452,7 @@ const SEED_STAFF = [
   {
     id: "vikram",
     name: "Vikram Singh",
-    photo: generateSVGPlaceholder("#006064", "#ffffff", "Vikram Singh"),
+    photo: "/assets/images/staff/vikram.png",
     specialty: "Senior Stylist & Grooming Expert",
     experience: 7,
     rating: 4.7,
@@ -463,7 +463,7 @@ const SEED_STAFF = [
   {
     id: "ananya",
     name: "Ananya Sen",
-    photo: generateSVGPlaceholder("#880e4f", "#ffffff", "Ananya Sen"),
+    photo: "/assets/images/staff/ananya.png",
     specialty: "Bridal Makeup Artist & Hair Spa",
     experience: 10,
     rating: 4.9,
@@ -561,22 +561,22 @@ const SEED_GALLERY = [
     id: "gal1",
     category: "hair",
     title: "Signature Undercut & Beard Shape",
-    before: generateSVGPlaceholder("#333333", "#bbbbbb", "Before (Messy Hair & Beard)"),
-    after: generateSVGPlaceholder("#1a1a1a", "#C9A227", "After (Crisp Undercut & Defined Beard)")
+    before: "/assets/images/gallery/hair_before.png",
+    after: "/assets/images/gallery/hair_after.png"
   },
   {
     id: "gal2",
     category: "facial",
     title: "Hydra Facial Glow Transformation",
-    before: generateSVGPlaceholder("#f0f0f0", "#888888", "Before (Dull, Tanned Skin)"),
-    after: generateSVGPlaceholder("#ffffff", "#27AE60", "After (Bright, Hydrated Skin)")
+    before: "/assets/images/gallery/skin_before.png",
+    after: "/assets/images/gallery/skin_after.png"
   },
   {
     id: "gal3",
     category: "makeup",
     title: "Bridal Draping & Glow Makeup",
-    before: generateSVGPlaceholder("#ffebee", "#c2185b", "Before (Casual Makeup)"),
-    after: generateSVGPlaceholder("#fce4ec", "#d81b60", "After (HD Airbrush Bridal Finish)")
+    before: "/assets/images/gallery/makeup_before.png",
+    after: "/assets/images/gallery/makeup_after.png"
   }
 ];
 
