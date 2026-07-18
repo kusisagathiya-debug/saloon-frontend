@@ -10,13 +10,13 @@
   --success: #27AE60;        /* Green - Bookings */
   --error: #E74C3C;          /* Red - Cancelations */
   
-  /* Spacing Scale */
-  --space-xs: 8px;
-  --space-sm: 16px;
-  --space-md: 24px;
-  --space-lg: 32px;
-  --space-xl: 48px;
-  --space-xxl: 64px;
+  /* Spacing Scale (Reduced 40-50% for compact layout) */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 20px;
+  --space-xl: 24px;
+  --space-xxl: 32px;
   
   /* Glassmorphism & Overlays */
   --glass-bg: rgba(255, 255, 255, 0.85);

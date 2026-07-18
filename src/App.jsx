@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar.jsx';
-import OffersBanner from './components/OffersBanner.jsx';
 import ServiceCard from './components/ServiceCard.jsx';
 import BeforeAfter from './components/BeforeAfter.jsx';
 import StaffCarousel from './components/StaffCarousel.jsx';
@@ -95,11 +94,10 @@ export default function App() {
         onToggleAdmin={() => setIsAdminMode(!isAdminMode)}
       />
 
-      {/* Offers marquee scrolling banner */}
-      <OffersBanner />
+
 
       {/* Main Container Layout */}
-      <main style={{ marginTop: 'var(--nav-height)', minHeight: 'calc(100vh - var(--nav-height) - 100px)' }}>
+      <main style={{ paddingTop: 'var(--nav-height)', minHeight: 'calc(100vh - var(--nav-height) - 100px)' }}>
         
         {isAdminMode ? (
           /* ======================================================== */
@@ -217,7 +215,7 @@ export default function App() {
       </main>
 
       {/* FOOTER */}
-      <footer style={{ backgroundColor: 'var(--text)', color: '#FFFFFF', padding: '40px 0', textAlign: 'center', borderTop: '2px solid var(--primary)' }}>
+      <footer style={{ backgroundColor: 'var(--text)', color: '#FFFFFF', padding: '24px 0', textAlign: 'center', borderTop: '2px solid var(--primary)' }}>
         <div className="container">
           <h3 style={{ textTransform: 'uppercase', letterSpacing: '0.15em', fontWeight: 800 }}>Sadhana</h3>
           <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem', marginTop: '8px' }}>

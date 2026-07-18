@@ -3,11 +3,11 @@ import { Scissors, Sparkles, Smile, Star } from 'lucide-react';
 
 const getCategoryIcon = (category) => {
   switch (category) {
-    case 'hair': return <Scissors size={20} className="text-gold" />;
-    case 'facial': return <Smile size={20} className="text-gold" />;
-    case 'treatment': return <Sparkles size={20} className="text-gold" />;
-    case 'makeup': return <Star size={20} className="text-gold" />;
-    default: return <Sparkles size={20} className="text-gold" />;
+    case 'hair': return <Scissors size={16} className="text-gold" />;
+    case 'facial': return <Smile size={16} className="text-gold" />;
+    case 'treatment': return <Sparkles size={16} className="text-gold" />;
+    case 'makeup': return <Star size={16} className="text-gold" />;
+    default: return <Sparkles size={16} className="text-gold" />;
   }
 };
 

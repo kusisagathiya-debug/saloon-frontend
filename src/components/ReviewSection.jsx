@@ -18,7 +18,7 @@ export default function ReviewSection() {
           <p>Read what our guests say about their luxury grooming and beauty experiences.</p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px', marginTop: '40px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px', marginTop: '16px' }}>
           {reviews.map((rev) => (
             <div key={rev.id} className="card-glass review-card animate-fade-in" style={{ padding: '30px' }}>
               <div className="review-header" style={{ marginBottom: '15px' }}>

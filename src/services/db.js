@@ -561,8 +561,8 @@ const SEED_GALLERY = [
     id: "gal1",
     category: "hair",
     title: "Signature Undercut & Beard Shape",
-    before: "/assets/images/gallery/hair_before.png",
-    after: "/assets/images/gallery/hair_after.png"
+    before: "/assets/images/gallery/hair_before_v3.png",
+    after: "/assets/images/gallery/hair_after_v3.png"
   },
   {
     id: "gal2",
@@ -643,8 +643,8 @@ class LocalDatabase {
     if (!localStorage.getItem("sadhana_offers")) {
       localStorage.setItem("sadhana_offers", JSON.stringify(SEED_OFFERS));
     }
-    if (!localStorage.getItem("sadhana_gallery")) {
-      localStorage.setItem("sadhana_gallery", JSON.stringify(SEED_GALLERY));
+    if (!localStorage.getItem("sadhana_gallery_v3")) {
+      localStorage.setItem("sadhana_gallery_v3", JSON.stringify(SEED_GALLERY));
     }
     if (!localStorage.getItem("sadhana_bookings")) {
       localStorage.setItem("sadhana_bookings", JSON.stringify(SEED_BOOKINGS));
@@ -668,7 +668,7 @@ class LocalDatabase {
   }
 
   getGallery() {
-    return JSON.parse(localStorage.getItem("sadhana_gallery"));
+    return JSON.parse(localStorage.getItem("sadhana_gallery_v3")) || SEED_GALLERY;
   }
 
   getBookings() {

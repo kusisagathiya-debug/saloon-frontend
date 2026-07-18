@@ -1,0 +1,233 @@
+/* Responsive Design Breakpoints for Sadhana Salon */
+
+/* =======================================================================
+   TABLET & SMALL LAPTOP (Max Width: 1024px)
+   ======================================================================= */
+@media screen and (max-width: 1024px) {
+  /* Reduce Container Padding */
+  .container {
+    padding: 0 30px;
+  }
+
+  /* Typography Adjustments */
+  .section-title h2 {
+    font-size: 2.5rem;
+  }
+
+  /* Contact Grid */
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =======================================================================
+   MOBILE & SMALL TABLET (Max Width: 768px)
+   ======================================================================= */
+@media screen and (max-width: 768px) {
+  /* Container & Spacing */
+  .container {
+    padding: 0 16px;
+  }
+  .section {
+    padding: 8px 0;
+  }
+  .section-title {
+    margin-bottom: 8px;
+  }
+
+  /* Navigation Bar */
+  .navbar-header {
+    height: auto !important;
+    padding: 8px 0;
+  }
+  .navbar-header.scrolled {
+    height: auto !important;
+  }
+  .navbar-container {
+    height: auto !important;
+    padding: 10px 12px 0 12px;
+    gap: 12px;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start; /* Amazon-style left alignment */
+  }
+  .nav-links {
+    display: flex !important;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start;
+    padding-bottom: 4px; /* Space for hidden scrollbar */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+  }
+  .nav-links::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+  .nav-link {
+    font-size: 13px; /* Slightly larger, more readable like an app */
+    font-weight: 500;
+    padding: 6px 10px;
+    white-space: nowrap;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px; /* Pill shape like Amazon categories */
+    background: rgba(255, 255, 255, 0.03);
+  }
+  .nav-link.active {
+    background: rgba(201, 162, 39, 0.15); /* Subtle gold background for active */
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+  .nav-link.contact-btn {
+    padding: 6px 12px;
+    font-size: 13px;
+    border-color: var(--primary);
+  }
+  .nav-links > a:last-child {
+    font-size: 13px;
+    gap: 4px !important;
+  }
+  .nav-links > a:last-child svg {
+    width: 14px;
+    height: 14px;
+  }
+  .logo-text-wrapper span:first-child {
+    font-size: 14px; /* Reduced from 16px */
+  }
+  .logo-sub {
+    font-size: 7px; /* Reduced from 8px */
+    letter-spacing: 0.15em;
+  }
+  .logo-img {
+    height: 32px;
+    width: 32px;
+  }
+  .logo {
+    gap: 8px;
+  }
+
+  /* Hero Section */
+  .hero-title {
+    font-size: 2.2rem !important;
+  }
+  .hero-subtitle {
+    font-size: 0.75rem !important;
+    letter-spacing: 0.15em !important;
+  }
+  .hero-description {
+    font-size: 0.95rem !important;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  .hero-buttons .btn {
+    width: 100%;
+  }
+
+  /* Typography */
+  .section-title h2 {
+    font-size: 2rem;
+  }
+  .section-title p {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  /* Category Filter Grid */
+  .category-filter-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  /* Services Grid Horizontal Swipe */
+  .services-grid {
+    display: flex !important;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 12px;
+    -webkit-overflow-scrolling: touch;
+    gap: 12px;
+  }
+  /* Hide scrollbar for clean app-like look */
+  .services-grid::-webkit-scrollbar {
+    display: none;
+  }
+  .services-grid {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  .services-grid > div {
+    flex: 0 0 85%;
+    scroll-snap-align: center;
+  }
+
+  /* Service & Review Grids */
+  .service-grid, .staff-grid, .review-grid, .ba-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  /* Staff Details Modal */
+  .staff-modal-content {
+    flex-direction: column;
+  }
+  .staff-modal-sidebar {
+    border-right: none;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 20px;
+  }
+
+  /* Review Filters */
+  .review-filters {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Dashboard Admin Panel */
+  .admin-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  .admin-controls {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .stat-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Footer */
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+  .footer-socials {
+    justify-content: center;
+  }
+}
+
+/* =======================================================================
+   SMALL MOBILE (Max Width: 480px)
+   ======================================================================= */
+@media screen and (max-width: 480px) {
+  .hero-title {
+    font-size: 1.8rem !important;
+  }
+  .hero-carousel-section {
+    min-height: 80vh !important;
+  }
+
+  /* 2 columns for category filters on very small screens */
+  .category-filter-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

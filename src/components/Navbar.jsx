@@ -3,7 +3,6 @@ import { Menu, X, User } from 'lucide-react';
 
 export default function Navbar({ activeSection, onNavigate, onToggleAdmin, isAdminMode }) {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   // Monitor scroll height to apply compact shadow style
   useEffect(() => {
@@ -18,17 +17,6 @@ export default function Navbar({ activeSection, onNavigate, onToggleAdmin, isAdm
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Body scroll lock for mobile menu
-  useEffect(() => {
-    if (isSidebarOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isSidebarOpen]);
 
   const navItems = [
     { id: 'home', label: 'Home' },
@@ -40,7 +28,6 @@ export default function Navbar({ activeSection, onNavigate, onToggleAdmin, isAdm
   ];
 
   const handleLinkClick = (id) => {
-    setIsSidebarOpen(false);
     onNavigate(id);
   };
 
@@ -57,13 +44,13 @@ export default function Navbar({ activeSection, onNavigate, onToggleAdmin, isAdm
             </div>
           </a>
 
-          {/* Desktop Nav Links */}
+          {/* Nav Links */}
           <nav className="nav-links">
             {navItems.map((item) => (
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className={`nav-link ${activeSection === item.id && !isAdminMode ? 'active' : ''}`}
+                className={`nav-link ${activeSection === item.id && !isAdminMode ? 'active' : ''} ${item.id === 'contact' ? 'contact-btn' : ''}`}
                 onClick={() => handleLinkClick(item.id)}
               >
                 {item.label}
@@ -85,62 +72,8 @@ export default function Navbar({ activeSection, onNavigate, onToggleAdmin, isAdm
             </a>
           </nav>
 
-          {/* Mobile Hamburger Button */}
-          <button 
-            className="mobile-menu-btn" 
-            onClick={() => setIsSidebarOpen(true)}
-            aria-label="Open navigation menu"
-          >
-            <Menu size={24} />
-          </button>
         </div>
       </header>
-
-      {/* Sidebar overlay */}
-      <div 
-        className={`sidebar-overlay ${isSidebarOpen ? 'open' : ''}`} 
-        onClick={() => setIsSidebarOpen(false)}
-      />
-
-      {/* Mobile Slide-in Sidebar */}
-      <div className={`mobile-sidebar ${isSidebarOpen ? 'open' : ''}`}>
-        <button 
-          className="sidebar-close-btn" 
-          onClick={() => setIsSidebarOpen(false)}
-          aria-label="Close navigation menu"
-        >
-          <X size={24} />
-        </button>
-
-        <ul className="sidebar-links">
-          {navItems.map((item) => (
-            <li key={item.id}>
-              <a
-                href={`#${item.id}`}
-                className={`sidebar-link ${activeSection === item.id && !isAdminMode ? 'active' : ''}`}
-                onClick={() => handleLinkClick(item.id)}
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
-          <li>
-            <a
-              href="#dashboard"
-              className={`sidebar-link ${isAdminMode ? 'active' : ''}`}
-              onClick={(e) => {
-                e.preventDefault();
-                setIsSidebarOpen(false);
-                onToggleAdmin();
-              }}
-              style={{ display: 'flex', alignItems: 'center', gap: '8px' }}
-            >
-              <User size={18} />
-              Admin Dashboard
-            </a>
-          </li>
-        </ul>
-      </div>
     </>
   );
 }

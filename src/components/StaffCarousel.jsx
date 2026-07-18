@@ -41,7 +41,7 @@ export default function StaffCarousel() {
                 <p className="staff-experience">{member.experience} Years Salon Experience</p>
                 
                 {/* Average ratings */}
-                <div style={{ marginBottom: '16px' }}>
+                <div style={{ marginBottom: '8px' }}>
                   <span className="staff-rating">
                     <Star size={14} fill="#F1C40F" stroke="none" />
                     <span>{member.rating} Rating</span>

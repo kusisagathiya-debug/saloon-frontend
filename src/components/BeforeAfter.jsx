@@ -81,7 +81,7 @@ export default function BeforeAfter() {
 
         {activeItem ? (
           <div>
-            <div style={{ textAlign: 'center', marginBottom: '16px', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px' }}>
+            <div style={{ textAlign: 'center', marginBottom: '8px', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px' }}>
               <span className="review-service-tag" style={{ margin: 0, display: 'flex', alignItems: 'center', gap: '4px' }}>
                 <Eye size={12} />
                 {activeItem.title}
@@ -132,7 +132,7 @@ export default function BeforeAfter() {
               </div>
             </div>
 
-            <p style={{ textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.85rem', marginTop: '16px', fontWeight: 600 }}>
+            <p style={{ textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.85rem', marginTop: '8px', fontWeight: 600 }}>
               ← Drag slider handle to compare before and after →
             </p>
           </div>
